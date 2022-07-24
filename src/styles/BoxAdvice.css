@@ -1,0 +1,37 @@
+.box_advice {
+	width: 600px;
+	height: 350px;
+	padding: 26px 20px;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	gap: 1rem;
+
+	background-color: var(--dark-grayish-blue);
+	border-radius: 24px;
+}
+
+span.advice_number {
+	font-size: 1em;
+	font-weight: 700;
+
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: var(--neon-green);
+}
+
+span.advice {
+	width: 80%;
+	font-size: 2em;
+	font-weight: 800;
+	text-align: center;
+	word-spacing: 2px;
+}
+
+img.divider_box {
+	max-width: 80%;
+	margin-bottom: 2em;
+}
