@@ -10,12 +10,33 @@ main {
 	overflow: hidden;
 }
 
-.circle_button {
+main .container_boxAdvice {
+	width: 100%;
+	height: 600px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+main .container_boxAdvice .row-box {
+	width: 100%;
+	height: max-content;
+}
+
+main .container_boxAdvice .row-button {
+	width: 100%;
+	height: max-content;
+}
+
+main .container_boxAdvice .row-button .circle_button {
 	width: 4.1rem;
 	height: 4.1rem;
+	margin: 0 auto;
 
-	position: absolute;
-	bottom: 162px;
+	position: relative;
+	top: -30px;
 
 	display: flex;
 	justify-content: center;
@@ -25,7 +46,7 @@ main {
 	border-radius: 50%;
 }
 
-.circle_button:hover {
+main .container_boxAdvice .row-button .circle_button:hover {
 	cursor: pointer;
 	box-shadow: 0 0 2.1rem var(--neon-green);
 }

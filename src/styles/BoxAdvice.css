@@ -1,7 +1,8 @@
 .box_advice {
-	width: 600px;
-	height: 350px;
+	width: 50%;
+	height: 360px;
 	padding: 26px 20px;
+	margin: 0 auto;
 
 	display: flex;
 	justify-content: space-around;
@@ -10,6 +11,7 @@
 	gap: 1rem;
 
 	background-color: var(--dark-grayish-blue);
+	box-shadow: 0 0 1.5rem var(--dark-grayish-blue);
 	border-radius: 24px;
 }
 
@@ -34,4 +36,56 @@ span.advice {
 img.divider_box {
 	max-width: 80%;
 	margin-bottom: 2em;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 940px) {
+	.box_advice {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 580px) {
+	.box_advice span.advice {
+		width: 90%;
+		font-size: 1.8em;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.box_advice span.advice {
+		font-size: 1.7em;
+	}
+}
+
+@media only screen and (max-width: 440px) {
+	.box_advice {
+		width: 100%;
+		border-radius: 0;
+	}
+	.box_advice span.advice_number {
+		font-size: 0.8em;
+	}
+
+	.box_advice span.advice {
+		width: 100%;
+		font-size: 1.5em;
+	}
+
+	img.divider_box {
+		width: auto;
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	.box_advice span.advice {
+		font-size: 1.45em;
+	}
+}
+
+@media only screen and (max-width: 300px) {
+	.box_advice span.advice {
+		font-size: 1.4em;
+	}
 }
