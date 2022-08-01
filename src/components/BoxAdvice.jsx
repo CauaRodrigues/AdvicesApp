@@ -2,15 +2,12 @@ import React from "react";
 import DividerDesktop from "../assets/pattern-divider-desktop.svg";
 import "../styles/BoxAdvice.css";
 
-const BoxAdvice = () => {
-	let id = 117;
-	let advice =
-		"It is easy to sit up and take notice, what's difficult is getting up and taking action";
+const BoxAdvice = ({ numberAdvice, text }) => {
 	return (
 		<div className="box_advice">
-			<span className="advice_number">advice #{id}</span>
+			<span className="advice_number">advice #{numberAdvice}</span>
 
-			<span className="advice">"{advice}"</span>
+			<span className="advice">"{text}"</span>
 
 			<img className="divider_box" src={DividerDesktop} alt="Divider" />
 		</div>
