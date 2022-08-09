@@ -46,5 +46,27 @@ main .container_boxAdvice .row-button .circle_button {
 
 main .container_boxAdvice .row-button .circle_button:hover {
 	cursor: pointer;
-	box-shadow: 0 0 2.1rem var(--neon-green);
+	box-shadow: 0 0 1.7rem var(--neon-green);
+}
+
+main footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+footer span {
+	font-size: 1.15em;
+	letter-spacing: 0.1em;
+	word-spacing: 0.08em;
+}
+
+footer span a {
+	color: var(--neon-green);
+	text-decoration: none;
+}
+
+footer span a:hover {
+	text-decoration: underline;
+	text-shadow: 0 0 1rem var(--neon-green);
 }

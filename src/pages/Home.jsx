@@ -34,6 +34,19 @@ const Home = () => {
 					</span>
 				</div>
 			</div>
+
+			<footer>
+				<span>
+					Developed by{" "}
+					<a
+						href="https://github.com/CauaRodrigues"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Cauã Rodrigues
+					</a>
+				</span>
+			</footer>
 		</main>
 	);
 };
