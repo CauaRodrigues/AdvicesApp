@@ -25,13 +25,17 @@ const Home = () => {
 				</div>
 
 				<div className="row-button">
-					<span
+					<span className="triangle t-left"></span>
+
+					<button
 						className="circle_button"
 						onClick={generateAdvice}
 						title="Generate Advice"
 					>
 						<img src={IconDice} alt="Button Advice" />
-					</span>
+					</button>
+
+					<span className="triangle t-right"></span>
 				</div>
 			</div>
 

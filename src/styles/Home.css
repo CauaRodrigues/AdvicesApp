@@ -26,12 +26,16 @@ main .container_boxAdvice .row-box {
 main .container_boxAdvice .row-button {
 	width: 100%;
 	height: max-content;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
 }
 
-main .container_boxAdvice .row-button .circle_button {
+button.circle_button {
 	width: 4.1rem;
 	height: 4.1rem;
-	margin: 0 auto;
 
 	position: relative;
 	top: -30px;
@@ -42,11 +46,37 @@ main .container_boxAdvice .row-button .circle_button {
 
 	background-color: var(--neon-green);
 	border-radius: 50%;
+	border: none;
 }
 
-main .container_boxAdvice .row-button .circle_button:hover {
+button.circle_button:hover {
 	cursor: pointer;
-	box-shadow: 0 0 1.7rem var(--neon-green);
+	box-shadow: 0 0 0.8rem var(--neon-green);
+}
+
+span.triangle {
+	width: 0;
+	height: 0;
+	position: relative;
+	top: -31px;
+}
+
+span.triangle:hover {
+	cursor: pointer;
+}
+
+span.triangle.t-left {
+	margin-right: 10px;
+	border-top: 0.8em solid transparent;
+	border-right: 0.8em solid var(--neon-green);
+	border-bottom: 0.8em solid transparent;
+}
+
+span.triangle.t-right {
+	margin-left: 10px;
+	border-top: 0.8em solid transparent;
+	border-left: 0.8em solid var(--neon-green);
+	border-bottom: 0.8em solid transparent;
 }
 
 main footer {
