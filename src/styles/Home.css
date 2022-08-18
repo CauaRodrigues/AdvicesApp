@@ -1,6 +1,5 @@
 main {
 	height: 100vh;
-	width: 100vw;
 
 	display: flex;
 	justify-content: center;
@@ -25,20 +24,21 @@ main .container_boxAdvice .row-box {
 
 main .container_boxAdvice .row-button {
 	width: 100%;
-	height: max-content;
+	height: 90px;
 
 	display: flex;
 	justify-content: center;
+	gap: 1rem;
 	flex-direction: row;
 	align-items: center;
+
+	position: relative;
+	top: -45px;
 }
 
 button.circle_button {
 	width: 4.1rem;
 	height: 4.1rem;
-
-	position: relative;
-	top: -30px;
 
 	display: flex;
 	justify-content: center;
@@ -54,29 +54,17 @@ button.circle_button:hover {
 	box-shadow: 0 0 0.8rem var(--neon-green);
 }
 
-span.triangle {
-	width: 0;
-	height: 0;
-	position: relative;
-	top: -31px;
+.chevron {
+	color: var(--light);
 }
 
-span.triangle:hover {
+.chevron:hover {
 	cursor: pointer;
+	color: var(--neon-green);
 }
 
-span.triangle.t-left {
-	margin-right: 10px;
-	border-top: 0.8em solid transparent;
-	border-right: 0.8em solid var(--neon-green);
-	border-bottom: 0.8em solid transparent;
-}
-
-span.triangle.t-right {
-	margin-left: 10px;
-	border-top: 0.8em solid transparent;
-	border-left: 0.8em solid var(--neon-green);
-	border-bottom: 0.8em solid transparent;
+.iconSearch_color {
+	color: var(--dark-blue);
 }
 
 main footer {

@@ -1,8 +1,17 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faChevronRight,
+	faChevronLeft,
+	faSearch,
+} from "@fortawesome/free-solid-svg-icons";
+
 import BoxAdvice from "../components/BoxAdvice";
 import "../styles/Home.css";
+import "../styles/Buttons.css";
 import IconDice from "../assets/icon-dice.svg";
-import axios from "axios";
+import IconSearchTextAdvice from "../assets/searchText.png";
 
 const Home = () => {
 	let [id, setId] = useState(0);
@@ -25,17 +34,67 @@ const Home = () => {
 				</div>
 
 				<div className="row-button">
-					<span className="triangle t-left"></span>
+					<a href="#slides__1">
+						<FontAwesomeIcon
+							icon={faChevronLeft}
+							className="chevron slide__prev"
+							title="Prev"
+							size="lg"
+						/>
+					</a>
 
-					<button
-						className="circle_button"
-						onClick={generateAdvice}
-						title="Generate Advice"
-					>
-						<img src={IconDice} alt="Button Advice" />
-					</button>
+					<div className="slider-container">
+						<div className="slider">
+							<div className="slides">
+								<div id="slides__1" className="slide">
+									<button
+										className="circle_button"
+										onClick={generateAdvice}
+										title="Generate Advice"
+									>
+										<img src={IconDice} alt="Button Advice" />
+									</button>
+								</div>
 
-					<span className="triangle t-right"></span>
+								<div id="slides__2" className="slide">
+									<button
+										className="circle_button"
+										onClick={generateAdvice}
+										title="Generate Advice"
+									>
+										<FontAwesomeIcon
+											icon={faSearch}
+											size="2x"
+											className="iconSearch_color"
+										/>
+									</button>
+								</div>
+
+								<div id="slides__3" className="slide">
+									<button
+										className="circle_button"
+										onClick={generateAdvice}
+										title="Generate Advice"
+									>
+										<img
+											src={IconSearchTextAdvice}
+											className="search-number"
+											alt="Button Advice"
+										/>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<a href="#slides__3">
+						<FontAwesomeIcon
+							icon={faChevronRight}
+							className="chevron slide__next"
+							title="Next"
+							size="lg"
+						/>
+					</a>
 				</div>
 			</div>
 
