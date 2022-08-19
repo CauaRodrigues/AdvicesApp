@@ -55,6 +55,7 @@ button.circle_button:hover {
 }
 
 .chevron {
+	padding: 0.5em;
 	color: var(--light);
 }
 
@@ -67,6 +68,44 @@ button.circle_button:hover {
 	color: var(--dark-blue);
 }
 
+.slider-container {
+	height: 5.6rem;
+	width: 5.6rem;
+	border-radius: 50%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.slider {
+	height: 100%;
+	width: 100%;
+	display: flex;
+}
+
+.slides {
+	display: flex;
+	overflow: hidden;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
+}
+
+.slide {
+	width: 100%;
+	margin-right: 0px;
+	box-sizing: border-box;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+
+	transform-origin: center center;
+	transform: scale(1);
+	scroll-snap-align: center;
+}
+
 main footer {
 	display: flex;
 	justify-content: center;
@@ -77,6 +116,7 @@ footer span {
 	font-size: 1.15em;
 	letter-spacing: 0.1em;
 	word-spacing: 0.08em;
+	margin-bottom: 1em;
 }
 
 footer span a {

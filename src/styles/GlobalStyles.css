@@ -28,3 +28,18 @@ body {
 	background-color: var(--dark-blue);
 	color: var(--light);
 }
+
+::-webkit-scrollbar {
+	width: 0.5rem;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 0.25rem;
+	background: var(--grayish-blue);
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+	border-left: 1px solid var(--dark-grayish-blue);
+}

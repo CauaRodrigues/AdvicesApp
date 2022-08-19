@@ -9,7 +9,6 @@ import {
 
 import BoxAdvice from "../components/BoxAdvice";
 import "../styles/Home.css";
-import "../styles/Buttons.css";
 import IconDice from "../assets/icon-dice.svg";
 import IconSearchTextAdvice from "../assets/searchText.png";
 
@@ -26,6 +25,34 @@ const Home = () => {
 			});
 	};
 
+	let slideNumber = 1;
+
+	const onChangeSlideRight = () => {
+		if (slideNumber === 1) {
+			slideNumber++;
+			window.location.hash = "#slides__2";
+		} else if (slideNumber === 2) {
+			slideNumber++;
+			window.location.hash = "#slides__3";
+		} else if (slideNumber === 3) {
+			slideNumber = 1;
+			window.location.hash = "#slides__1";
+		}
+	};
+
+	const onChangeSlideLeft = () => {
+		if (slideNumber === 1) {
+			slideNumber = 3;
+			window.location.hash = "#slides__3";
+		} else if (slideNumber === 3) {
+			slideNumber--;
+			window.location.hash = "#slides__2";
+		} else if (slideNumber === 2) {
+			slideNumber--;
+			window.location.hash = "#slides__1";
+		}
+	};
+
 	return (
 		<main>
 			<div className="container_boxAdvice">
@@ -34,14 +61,13 @@ const Home = () => {
 				</div>
 
 				<div className="row-button">
-					<a href="#slides__1">
-						<FontAwesomeIcon
-							icon={faChevronLeft}
-							className="chevron slide__prev"
-							title="Prev"
-							size="lg"
-						/>
-					</a>
+					<FontAwesomeIcon
+						icon={faChevronLeft}
+						className="chevron slide__prev"
+						title="Prev"
+						size="lg"
+						onClick={onChangeSlideLeft}
+					/>
 
 					<div className="slider-container">
 						<div className="slider">
@@ -87,14 +113,13 @@ const Home = () => {
 						</div>
 					</div>
 
-					<a href="#slides__3">
-						<FontAwesomeIcon
-							icon={faChevronRight}
-							className="chevron slide__next"
-							title="Next"
-							size="lg"
-						/>
-					</a>
+					<FontAwesomeIcon
+						icon={faChevronRight}
+						className="chevron slide__next"
+						title="Next"
+						size="lg"
+						onClick={onChangeSlideRight}
+					/>
 				</div>
 			</div>
 
