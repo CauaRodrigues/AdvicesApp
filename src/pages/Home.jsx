@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,9 +8,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import BoxAdvice from "../components/BoxAdvice";
-import "../styles/Home.css";
+
 import IconDice from "../assets/icon-dice.svg";
 import IconSearchTextAdvice from "../assets/searchText.png";
+import Dialog from "../components/Dialog";
+import "../styles/Home.css";
 
 const Home = () => {
 	let [id, setId] = useState(0);
@@ -53,9 +55,19 @@ const Home = () => {
 		}
 	};
 
+	const [displayDialog, setDisplayDialog] = useState("none");
+	const openDialog = () => setDisplayDialog("flex");
+	const closedDialog = () => setDisplayDialog("none");
+
+	useEffect(() => {
+		window.location.hash = "#slides__1";
+	}, []);
+
 	return (
 		<main>
 			<div className="container_boxAdvice">
+				<Dialog display={displayDialog} closed={closedDialog} />
+
 				<div className="row-box">
 					<BoxAdvice numberAdvice={id} text={advice} />
 				</div>
@@ -85,8 +97,8 @@ const Home = () => {
 								<div id="slides__2" className="slide">
 									<button
 										className="circle_button"
-										onClick={generateAdvice}
-										title="Generate Advice"
+										onClick={openDialog}
+										title="Search Advice"
 									>
 										<FontAwesomeIcon
 											icon={faSearch}
@@ -99,13 +111,13 @@ const Home = () => {
 								<div id="slides__3" className="slide">
 									<button
 										className="circle_button"
-										onClick={generateAdvice}
-										title="Generate Advice"
+										onClick={() => console.log("search text")}
+										title="Search Advice by text"
 									>
 										<img
 											src={IconSearchTextAdvice}
 											className="search-number"
-											alt="Button Advice"
+											alt="Button search advice by text"
 										/>
 									</button>
 								</div>

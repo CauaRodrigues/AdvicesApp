@@ -1,0 +1,69 @@
+.dialog {
+	display: none;
+	position: fixed;
+	z-index: 10000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dialog__content {
+	background: rgba(0, 0, 0, 0.41);
+	backdrop-filter: blur(10px);
+	border: 2px solid var(--neon-green);
+	border-radius: 26px;
+
+	width: 85%;
+	height: 70%;
+	margin: auto;
+}
+
+.dialog-options {
+	width: 100%;
+	height: 3.2em;
+	padding: 0 16px 12px;
+	border-bottom: 2px solid var(--neon-green);
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.dialog-options .box-field {
+	width: 86%;
+	display: flex;
+	gap: 1rem;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.dialog-options .box-field input {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid var(--grayish-blue);
+	color: var(--light);
+	font-size: 1em;
+	font-weight: 600;
+	padding-left: 0.1em;
+	background-color: transparent;
+}
+
+.dialog-options .box-field input:focus {
+	outline: none;
+	border-color: var(--neon-green);
+}
+
+.dialog-options .btn-find,
+.btn-closed {
+	color: var(--grayish-blue);
+}
+
+.dialog-options .btn-find:hover,
+.btn-closed:hover {
+	color: var(--neon-green);
+	cursor: pointer;
+}
