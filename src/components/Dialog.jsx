@@ -1,12 +1,19 @@
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 
 import "../styles/Dialog.css";
+import ListAdvice from "./ListAdvice";
 
 const Dialog = ({ display, closed }) => {
 	let windowDialog = document.getElementById("windowDialog");
 	window.onclick = ({ target }) => (target === windowDialog ? closed() : null);
+
+	const [inputAdvice, setInputAdvice] = useState("");
+	let inputHandler = (e) => {
+		var lowerCase = e.target.value.toLowerCase();
+		setInputAdvice(lowerCase);
+	};
 
 	return (
 		<div style={{ display: display }} className="dialog" id="windowDialog">
@@ -20,7 +27,14 @@ const Dialog = ({ display, closed }) => {
 							onClick={() => console.log("procurar")}
 						/>
 
-						<input type="text" />
+						<div className="field">
+							<input
+								type="text"
+								placeholder="Search text or advice number"
+								onChange={inputHandler}
+							/>
+							<span></span>
+						</div>
 					</div>
 
 					<FontAwesomeIcon
@@ -29,6 +43,10 @@ const Dialog = ({ display, closed }) => {
 						className="btn-closed"
 						size="lg"
 					/>
+				</div>
+
+				<div className="container-list-advice">
+					<ListAdvice input={inputAdvice} />
 				</div>
 			</div>
 		</div>

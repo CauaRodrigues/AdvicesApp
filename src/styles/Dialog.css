@@ -1,7 +1,7 @@
 .dialog {
 	display: none;
 	position: fixed;
-	z-index: 10000;
+	z-index: 1;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -14,9 +14,10 @@
 	background: rgba(0, 0, 0, 0.41);
 	backdrop-filter: blur(10px);
 	border: 2px solid var(--neon-green);
-	border-radius: 26px;
+	border-radius: 12px;
+	z-index: 10;
 
-	width: 85%;
+	width: 55%;
 	height: 70%;
 	margin: auto;
 }
@@ -34,17 +35,22 @@
 }
 
 .dialog-options .box-field {
-	width: 86%;
+	width: 90%;
 	display: flex;
 	gap: 1rem;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 }
 
-.dialog-options .box-field input {
+.box-field .field {
 	width: 100%;
-	border: none;
-	border-bottom: 1px solid var(--grayish-blue);
+	position: relative;
+}
+
+.box-field .field input {
+	width: 100%;
+	border: 1px solid transparent;
+	border-bottom-color: var(--grayish-blue) !important;
 	color: var(--light);
 	font-size: 1em;
 	font-weight: 600;
@@ -52,9 +58,29 @@
 	background-color: transparent;
 }
 
-.dialog-options .box-field input:focus {
+.box-field .field span {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background-color: var(--neon-green);
+	transform-origin: bottom right;
+	transform: scaleX(0);
+	transition: transform 0.5s ease;
+}
+
+.box-field .field input:focus {
 	outline: none;
-	border-color: var(--neon-green);
+}
+
+.box-field .field input::placeholder {
+	color: hsla(0, 0%, 100%, 0.6);
+}
+
+.box-field .field input:focus ~ span {
+	transform-origin: bottom left;
+	transform: scaleX(1);
 }
 
 .dialog-options .btn-find,
@@ -66,4 +92,12 @@
 .btn-closed:hover {
 	color: var(--neon-green);
 	cursor: pointer;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 940px) {
+	.dialog__content {
+		width: 85%;
+	}
 }
