@@ -79,10 +79,10 @@ img.divider_box {
 }
 
 @media only screen and (max-width: 360px) {
-	.box_advice {
+	/* .box_advice {
 		width: 100%;
 		border-radius: 0;
-	}
+	} */
 
 	.box_advice span.advice {
 		font-size: 1.45em;
