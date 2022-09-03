@@ -11,8 +11,12 @@ const Dialog = ({ display, closed }) => {
 
 	const [inputAdvice, setInputAdvice] = useState("");
 	let inputHandler = (e) => {
-		var lowerCase = e.target.value.toLowerCase();
-		setInputAdvice(lowerCase);
+		if (e) {
+			var lowerCase = e.target.value.toLowerCase();
+			setInputAdvice(lowerCase);
+		} else {
+			setInputAdvice("");
+		}
 	};
 
 	return (
@@ -30,7 +34,7 @@ const Dialog = ({ display, closed }) => {
 						<div className="field">
 							<input
 								type="text"
-								placeholder="Search text or advice number"
+								placeholder="Search advice"
 								onChange={inputHandler}
 							/>
 							<span></span>
@@ -39,15 +43,17 @@ const Dialog = ({ display, closed }) => {
 
 					<FontAwesomeIcon
 						icon={faTimes}
-						onClick={closed}
+						onClick={() => {
+							inputHandler("");
+							setInputAdvice("");
+							closed();
+						}}
 						className="btn-closed"
 						size="lg"
 					/>
 				</div>
 
-				<div className="container-list-advice">
-					<ListAdvice input={inputAdvice} />
-				</div>
+				<ListAdvice input={inputAdvice} />
 			</div>
 		</div>
 	);

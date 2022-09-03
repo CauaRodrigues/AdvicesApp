@@ -2,17 +2,9 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-// import data from "../data.json";
 import "../styles/ListAdvice.css";
 
 const ListAdvice = ({ input }) => {
-	// // const filteredData = data.filter((el) =>
-	// // 	!input
-	// // 		? el
-	// // 		: el.text.toLowerCase().includes(input) ||
-	// // 		  el.id.toString().includes(input)
-	// // );
-
 	const [adviceList, setAdviceList] = useState([]);
 
 	useEffect(() => {
