@@ -74,6 +74,23 @@ button.circle_button:hover {
 	outline: none;
 }
 
+.copy:disabled {
+	background-color: #565a68;
+}
+
+.copy:disabled svg {
+	stroke: var(--dark-blue) !important;
+}
+
+.copy:disabled::before {
+	border: none;
+}
+
+.copy:disabled:hover {
+	cursor: inherit;
+	box-shadow: none;
+}
+
 .copy::before {
 	content: "";
 	z-index: -1;
