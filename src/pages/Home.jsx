@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faChevronRight,
@@ -7,27 +6,33 @@ import {
 	faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 
+import Service from "../service";
 import BoxAdvice from "../components/BoxAdvice";
-
 import IconDice from "../assets/icon-dice.svg";
 import Dialog from "../components/Dialog";
 import "../styles/Home.css";
 
+const srv = new Service();
+
 const Home = () => {
-	let [id, setId] = useState(0);
-	let [advice, setAdvice] = useState("Click the button below...");
+	let [idAdvice, setIdAdvice] = useState(0);
+	let [adviceText, setAdviceText] = useState("Click the button below...");
 	let [verifyGenerateAdvice, setVerifyGenerateAdvice] = useState(false);
 
-	const generateAdvice = () => {
+	async function generateAdvice() {
 		setVerifyGenerateAdvice(true);
 
-		axios
-			.get("https://api.adviceslip.com/advice")
-			.then(({ data: { slip } }) => {
-				setId(slip.id);
-				setAdvice(slip.advice);
-			});
-	};
+		await srv.getAdvices().then((res) => {
+			if (res) {
+				const {
+					slip: { id, advice },
+				} = res;
+
+				setIdAdvice(id);
+				setAdviceText(advice);
+			}
+		});
+	}
 
 	let slideNumber = 1;
 
@@ -67,7 +72,7 @@ const Home = () => {
 
 	const copyToClipboard = () => {
 		if (verifyGenerateAdvice) {
-			navigator.clipboard.writeText(advice);
+			navigator.clipboard.writeText(adviceText);
 		}
 	};
 
@@ -77,7 +82,7 @@ const Home = () => {
 				<Dialog display={displayDialog} closed={closedDialog} />
 
 				<div className="row-box">
-					<BoxAdvice numberAdvice={id} text={advice} />
+					<BoxAdvice numberAdvice={idAdvice} text={adviceText} />
 				</div>
 
 				<div className="row-button">

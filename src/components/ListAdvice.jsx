@@ -1,23 +1,25 @@
-import axios from "axios";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
+import Service from "../service";
 import "../styles/ListAdvice.css";
+
+const srv = new Service();
 
 const ListAdvice = ({ input }) => {
 	const [adviceList, setAdviceList] = useState([]);
 
 	useEffect(() => {
 		if (input) {
-			axios
-				.get(`https://api.adviceslip.com/advice/search/${input}`)
-				.then(({ data }) => {
-					if (data) {
-						setAdviceList(data.slips);
+			(async function () {
+				await srv.searchAdvice(input).then((res) => {
+					if (res) {
+						const { slips } = res;
+						setAdviceList(slips);
 					} else {
 						setAdviceList([]);
 					}
 				});
+			})();
 		} else {
 			setAdviceList([]);
 		}
