@@ -2,10 +2,6 @@
 
 <img src='./.github/banner.png' align="center" />
 
-<div align="center">
-
-</div>
-
 ---
 
 <h2 align="center">💡 <a href="https://coach-app.netlify.app/" target="_blank">AdvicesApp</a> 🚀 Concluído ✅ </h2>
